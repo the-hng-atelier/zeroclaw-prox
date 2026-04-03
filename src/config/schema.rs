@@ -72,6 +72,7 @@ pub struct Config {
     #[serde(skip)]
     pub config_path: PathBuf,
     /// API key for the selected provider. Overridden by `ZEROCLAW_API_KEY` or `API_KEY` env vars.
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub api_key: Option<String>,
     /// Base URL override for provider API (e.g. "http://10.0.0.1:11434" for remote Ollama)
     pub api_url: Option<String>,
